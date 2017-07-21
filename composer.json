@@ -1,0 +1,21 @@
+{
+    "name": "yiichina/yii2-auth",
+    "description": "Yii2 中使用第三方登录扩展，包括：QQ，微博，微信等",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","auth"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "cuileon",
+            "email": "admin@yiichina.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": ">=2.0.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "yiichina\\auth\\": ""
+        }
+    }
+}
