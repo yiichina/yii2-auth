@@ -6,7 +6,7 @@ use yii\authclient\OAuth2;
 use yii\web\HttpException;
 use Yii;
 
-class QQ extends OAuth2
+class Baidu extends OAuth2
 {
     public $authUrl = 'https://graph.qq.com/oauth2.0/authorize';
 

@@ -6,7 +6,7 @@ use yii\authclient\OAuth2;
 use yii\web\HttpException;
 use Yii;
 
-class Weibo extends OAuth2
+class Wechat extends OAuth2
 {
     public $authUrl = 'https://api.weibo.com/oauth2/authorize';
 
