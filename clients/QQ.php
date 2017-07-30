@@ -3,22 +3,24 @@
 namespace yiichina\auth\clients;
 
 use yii\authclient\OAuth2;
-use yii\web\HttpException;
+use yiichina\auth\AuthChoiceAsset;
 use Yii;
 
 class QQ extends OAuth2
 {
+    use AuthTrait;
+
     public $authUrl = 'https://graph.qq.com/oauth2.0/authorize';
 
     public $tokenUrl = 'https://graph.qq.com/oauth2.0/token';
 
     public $apiBaseUrl = 'https://graph.qq.com';
 
-	public function init()
-	{
-		$view = $this->getView();
-        yiichina\auth\AuthChoiceAsset::register($view);
-	}
+    public function init()
+    {
+        $this->registerAsset();
+        $this->registerTranslations();
+    }
 
     protected function initUserAttributes()
     {
@@ -54,7 +56,7 @@ class QQ extends OAuth2
      */
     protected function defaultName()
     {
-        return 'fa fa-qq fa-2x';
+        return 'qq';
     }
 
     /**
@@ -62,6 +64,6 @@ class QQ extends OAuth2
      */
     protected function defaultTitle()
     {
-        return 'QQ 登录';
+        return Yii::t('yiichina/auth', 'QQ');
     }
 }

@@ -19,7 +19,7 @@ use yii\web\AssetBundle;
  */
 class AuthChoiceAsset extends AssetBundle
 {
-    public $sourcePath = '@vendor/yiichina/auth/assets';
+    public $sourcePath = '@vendor/yiichina/yii2-auth/assets';
     public $css = [
         'authchoice.css',
     ];

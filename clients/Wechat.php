@@ -3,22 +3,24 @@
 namespace yiichina\auth\clients;
 
 use yii\authclient\OAuth2;
-use yii\web\HttpException;
+use yiichina\auth\AuthChoiceAsset;
 use Yii;
 
 class Wechat extends OAuth2
 {
+    use AuthTrait;
+
     public $authUrl = 'https://api.weibo.com/oauth2/authorize';
 
     public $tokenUrl = 'https://api.weibo.com/oauth2/access_token';
 
     public $apiBaseUrl = 'https://api.weibo.com/2';
 
-	public function init()
-	{
-		$view = $this->getView();
-        yiichina\auth\AuthChoiceAsset::register($view);
-	}
+    public function init()
+    {
+        $this->registerAsset();
+        $this->registerTranslations();
+    }
 
     protected function initUserAttributes()
     {
@@ -48,7 +50,7 @@ class Wechat extends OAuth2
      */
     protected function defaultName()
     {
-        return 'fa fa-weibo fa-2x';
+        return 'wechat';
     }
 
     /**
@@ -56,6 +58,6 @@ class Wechat extends OAuth2
      */
     protected function defaultTitle()
     {
-        return '微博登录';
+        return Yii::t('yiichina/auth', 'Wechat');
     }
 }

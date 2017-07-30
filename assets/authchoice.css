@@ -1,10 +1,13 @@
+.auth-icon.weibo, .auth-icon.qq, .auth-icon.wechat, .auth-icon.baidu {
+    background: url(authchoice.png) no-repeat;
+}
 .auth-icon.weibo {
     background-position: 0 -34px;
 }
 .auth-icon.qq {
     background-position: 0 -68px;
 }
-.auth-icon.weixin {
+.auth-icon.wechat {
     background-position: 0 -102px;
 }
 .auth-icon.baidu {
