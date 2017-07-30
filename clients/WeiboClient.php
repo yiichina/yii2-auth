@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\widgets;
+namespace yiichina\auth\clients;
 
 use yii\authclient\OAuth2;
 use yii\web\HttpException;
