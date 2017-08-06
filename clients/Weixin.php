@@ -6,15 +6,15 @@ use yii\authclient\OAuth2;
 use yiichina\auth\AuthChoiceAsset;
 use Yii;
 
-class Baidu extends OAuth2
+class Weixin extends OAuth2
 {
     use AuthTrait;
 
-    public $authUrl = 'http://openapi.baidu.com/oauth/2.0/authorize';
+    public $authUrl = 'https://open.weixin.qq.com/connect/qrconnect';
 
-    public $tokenUrl = 'https://openapi.baidu.com/oauth/2.0/token';
+    public $tokenUrl = 'https://api.weixin.qq.com/sns/oauth2/access_token';
 
-    public $apiBaseUrl = 'https://openapi.baidu.com/rest/2.0';
+    public $apiBaseUrl = 'https://api.weixin.qq.com';
 
     public function init()
     {
@@ -24,7 +24,7 @@ class Baidu extends OAuth2
 
     protected function initUserAttributes()
     {
-        return $this->api('passport/users/getInfo');
+        return $this->api('sns/userinfo');
     }
 
     /**
@@ -32,7 +32,7 @@ class Baidu extends OAuth2
      */
     protected function defaultName()
     {
-        return 'baidu';
+        return 'weixin';
     }
 
     /**
@@ -40,6 +40,6 @@ class Baidu extends OAuth2
      */
     protected function defaultTitle()
     {
-        return Yii::t('yiichina/auth', 'Baidu');
+        return Yii::t('yiichina/auth', 'Wexin');
     }
 }

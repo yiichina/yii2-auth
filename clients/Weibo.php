@@ -24,17 +24,8 @@ class Weibo extends OAuth2
 
     protected function initUserAttributes()
     {
-        $user = $this->api('users/show.json', 'GET', ['uid' => $this->user->uid]);
-
-        return [
-        	'client' => 'weibo',
-        	'openid' => $user['id'],
-        	'nickname' => $user['name'],
-        	'gender' => $user['gender'],
-        	'location' => $user['location'],
-        ];
+        return $this->api('users/show.json', 'GET', ['uid' => $this->user->uid]);
     }
-
 
     /**
      * @inheritdoc

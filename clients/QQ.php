@@ -27,7 +27,6 @@ class QQ extends OAuth2
         $user = $this->api('user/get_user_info', 'GET', ['oauth_consumer_key' => $this->user->client_id, 'openid' => $this->user->openid]);
 
         return [
-        	'client' => 'qq',
         	'openid' => $this->user->openid,
         	'nickname' => $user['nickname'],
         	'gender' => $user['gender'],
