@@ -3,5 +3,5 @@
 使用 composer 安装：
 
 ```shell
-composer require --prefer-dist yiisoft/yii2-authclient
+composer require --prefer-dist yiichina/yii2-auth
 ```
