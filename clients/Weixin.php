@@ -6,6 +6,32 @@ use yii\authclient\OAuth2;
 use yiichina\auth\AuthChoiceAsset;
 use Yii;
 
+/**
+ * Weixin allows authentication via Weixin OAuth.
+ *
+ * In order to use Weixin OAuth you must register your application at <https://open.weixin.qq.com/>.
+ *
+ * Example application configuration:
+ *
+ * ```php
+ * 'components' => [
+ *     'authClientCollection' => [
+ *         'class' => 'yii\authclient\Collection',
+ *         'clients' => [
+ *             'weixin' => [
+ *                 'class' => 'yiichina\auth\clients\Weixin',
+ *                 'clientId' => 'weixin_app_id',
+ *                 'clientSecret' => 'weixin_app_secret',
+ *             ],
+ *         ],
+ *     ]
+ *     // ...
+ * ]
+ * ```
+ *
+ * @see https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN
+ *
+ */
 class Weixin extends OAuth2
 {
     use AuthTrait;
