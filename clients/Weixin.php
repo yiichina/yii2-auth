@@ -16,6 +16,8 @@ class Weixin extends OAuth2
 
     public $apiBaseUrl = 'https://api.weixin.qq.com';
 
+    public $scope = 'snsapi_login';
+
     public function init()
     {
         $this->registerAsset();
@@ -41,5 +43,28 @@ class Weixin extends OAuth2
     protected function defaultTitle()
     {
         return Yii::t('yiichina/auth', 'Wexin');
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function buildAuthUrl(array $params = [])
+    {
+        $defaultParams = [
+            'appid' => $this->clientId,
+            'response_type' => 'code',
+            'redirect_uri' => $this->getReturnUrl(),
+        ];
+        if (!empty($this->scope)) {
+            $defaultParams['scope'] = $this->scope;
+        }
+
+        if ($this->validateAuthState) {
+            $authState = $this->generateAuthState();
+            $this->setState('authState', $authState);
+            $defaultParams['state'] = $authState;
+        }
+
+        return $this->composeUrl($this->authUrl, array_merge($defaultParams, $params));
     }
 }
