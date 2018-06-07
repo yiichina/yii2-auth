@@ -28,6 +28,14 @@ use Yii;
  *     // ...
  * ]
  * ```
+ * 
+ * Views:
+ *
+ * ```php
+ * <?= yii\authclient\widgets\AuthChoice::widget([
+ *      'baseAuthUrl' => ['site/auth'],
+ *      'popupMode' => false]) ?>
+ * ```
  *
  * @see https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&lang=zh_CN
  *
