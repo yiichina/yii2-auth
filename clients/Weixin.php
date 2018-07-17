@@ -28,7 +28,7 @@ use Yii;
  *     // ...
  * ]
  * ```
- * 
+ *
  * Views:
  *
  * ```php
@@ -99,6 +99,7 @@ class Weixin extends OAuth2
             $defaultParams['state'] = $authState;
         }
 
-        return $this->composeUrl($this->authUrl, array_merge($defaultParams, $params));
+        // https://open.weixin.qq.com/connect/qrconnect?appid={$appid}&redirect_uri={$redirct_uri}&response_type=code&scope=snsapi_login&state={$state}#wechat_redirect
+        return $this->composeUrl($this->authUrl, array_merge($defaultParams, $params)) . '#wechat_redirect';
     }
 }
