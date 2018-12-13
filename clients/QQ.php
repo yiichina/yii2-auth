@@ -24,7 +24,7 @@ class QQ extends OAuth2
 
     protected function initUserAttributes()
     {
-        return array_merge(['id' => $this->user->openid], $this->api('user/get_user_info', 'GET', ['oauth_consumer_key' => $this->user->client_id, 'openid' => $this->user->openid]);
+        return array_merge(['id' => $this->user->openid], $this->api('user/get_user_info', 'GET', ['oauth_consumer_key' => $this->user->client_id, 'openid' => $this->user->openid]));
     }
 
     /**
