@@ -24,7 +24,7 @@ class QQ extends OAuth2
 
     protected function initUserAttributes()
     {
-        return $this->api('user/get_user_info', 'GET', ['oauth_consumer_key' => $this->user->client_id, 'openid' => $this->user->openid]);
+        return array_merge(['id' => $this->user->openid], $this->api('user/get_user_info', 'GET', ['oauth_consumer_key' => $this->user->client_id, 'openid' => $this->user->openid]);
     }
 
     /**
@@ -35,12 +35,11 @@ class QQ extends OAuth2
     	$str = file_get_contents('https://graph.qq.com/oauth2.0/me?access_token=' . $this->accessToken->token);
 
         if (strpos($str, "callback") !== false) {
-			$lpos = strpos($str, "(");
-			$rpos = strrpos($str, ")");
-			$str = substr($str, $lpos + 1, $rpos - $lpos -1);
-		}
-
-		return json_decode($str);
+            $lpos = strpos($str, "(");
+            $rpos = strrpos($str, ")");
+            $str = substr($str, $lpos + 1, $rpos - $lpos -1);
+        }
+        return json_decode($str);
     }
 
     /**
