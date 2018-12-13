@@ -8,7 +8,6 @@
 
 [![Latest Stable Version](https://poser.pugx.org/yiichina/yii2-auth/v/stable)](https://packagist.org/packages/yiichina/yii2-auth)
 [![Total Downloads](https://poser.pugx.org/yiichina/yii2-auth/downloads)](https://packagist.org/packages/yiichina/yii2-auth)
-[![Latest Unstable Version](https://poser.pugx.org/yiichina/yii2-auth/v/unstable)](https://packagist.org/packages/yiichina/yii2-auth)
 [![License](https://poser.pugx.org/yiichina/yii2-auth/license)](https://packagist.org/packages/yiichina/yii2-auth)
 
 ## 安装
